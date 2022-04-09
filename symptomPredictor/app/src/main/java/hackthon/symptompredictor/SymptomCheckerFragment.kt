@@ -32,9 +32,6 @@ class SymptomCheckerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_SymptomCheckerFragment_to_BMICalculatorFragment)
-        }
     }
 
     override fun onDestroyView() {

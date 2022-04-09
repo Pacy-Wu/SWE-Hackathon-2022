@@ -3,26 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/SymptomCheckerFragment">
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="hackthon.symptompredictor.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_SymptomCheckerFragment"
+            app:destination="@id/SymptomCheckerFragment" />
+
+        <action
+            android:id="@+id/action_HomeFragment_to_BMICalculatorFragment"
+            app:destination="@id/BMICalculatorFragment" />
+
+        <action
+            android:id="@+id/action_HomeFragment_to_MedicalNewsFragment"
+            app:destination="@id/MedicalNewsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/SymptomCheckerFragment"
         android:name="hackthon.symptompredictor.SymptomCheckerFragment"
         android:label="SymptomCheckerFragment"
         tools:layout="@layout/fragment_symptom_checker">
-
-        <action
-            android:id="@+id/action_SymptomCheckerFragment_to_BMICalculatorFragment"
-            app:destination="@id/BMICalculatorFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/BMICalculatorFragment"
         android:name="hackthon.symptompredictor.BMICalculatorFragment"
         android:label="BMICalculatorFragment"
         tools:layout="@layout/fragment_bmi_calculator">
+    </fragment>
 
-        <action
-            android:id="@+id/action_BMICalculatorFragment_to_SymptomCheckerFragment"
-            app:destination="@id/SymptomCheckerFragment" />
+    <fragment
+        android:id="@+id/MedicalNewsFragment"
+        android:name="hackthon.symptompredictor.MedicalNewsFragment"
+        android:label="MedicalNewsFragment"
+        tools:layout="@layout/fragment_medical_news">
+
     </fragment>
 </navigation>

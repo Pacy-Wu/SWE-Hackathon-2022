@@ -15,6 +15,8 @@ import hackthon.symptompredictor.databinding.FragmentBackgroundInfoBinding
 class BackgroundInfoFragment : Fragment() {
     private val FRAGMENT = "BACKGROUND_INFO_FRAGMENT"
     private var _binding: FragmentBackgroundInfoBinding? = null
+    private val API_KEY = "aabe408a0amsh150fbff3bc2552dp1e0eabjsnf8e226a892cd"
+    private val TAG = "BackgroundInfoFragment"
 
     // This property is only valid between onCreateView and
     // onDestroyView.

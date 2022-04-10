@@ -18,6 +18,10 @@ class SymptomDiseaseViewModel: ViewModel() {
     val allSymptoms: LiveData<List<Symptoms>>
     get() = _allSymptoms
 
+    private var _allDiagnosis = MutableLiveData<List<Diagnosis>>()
+    val allDiagnosis: LiveData<List<Diagnosis>>
+        get() = _allDiagnosis
+
 
     fun getAllSymptoms(language:String) {
         ApiMedicApi.retrofitService.getAllSymptoms(language, API_KEY).enqueue(object : Callback<List<Symptoms>> {
@@ -26,8 +30,7 @@ class SymptomDiseaseViewModel: ViewModel() {
                 response: Response<List<Symptoms>>
             ) {
                 val body = response.body()
-                Log.v(TAG, "RETURNED INFO:")
-                Log.v(TAG, "$body")
+                _allSymptoms.value = body!!
             }
             override fun onFailure(call: Call<List<Symptoms>>, t: Throwable) {
                 Log.e(TAG, "Failure: ${t.message}")
@@ -43,8 +46,7 @@ class SymptomDiseaseViewModel: ViewModel() {
                     response: Response<List<Diagnosis>>
                 ) {
                     val body = response.body()
-                    Log.v(TAG, "RETURNED INFO:")
-                    Log.v(TAG, "$body")
+                    _allDiagnosis.value = body!!
                 }
                 override fun onFailure(call: Call<List<Diagnosis>>, t: Throwable) {
                     Log.e(TAG, "Failure: ${t.message}")

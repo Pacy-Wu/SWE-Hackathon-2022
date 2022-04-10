@@ -9,17 +9,18 @@ import android.widget.AutoCompleteTextView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
-class SymptomChoicesDialogFragment(val checkedItems: MutableList<Boolean>, val symptomsOptions: Array<String>) : DialogFragment() {
+class SymptomChoicesDialogFragment(val checkedItems: MutableList<Boolean>, val symptomsOptions: ArrayList<String>) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
+        Log.v("Dialog", symptomsOptions.toString())
         val symptomsChecked = mutableListOf<String>()
 
         checkedItems.toBooleanArray().forEach { Log.v("test", it.toString()) }
 
         return MaterialAlertDialogBuilder(this.requireContext())
             .setTitle("Symptoms")
-            .setMultiChoiceItems(symptomsOptions, checkedItems.toBooleanArray()) { dialog, item, isChecked ->
+            .setMultiChoiceItems(symptomsOptions.toTypedArray(), checkedItems.toBooleanArray()) { dialog, item, isChecked ->
                 val symptomClick: String = symptomsOptions[item]
                 if (isChecked) {
                     symptomsChecked.add(symptomClick)
@@ -44,3 +45,4 @@ class SymptomChoicesDialogFragment(val checkedItems: MutableList<Boolean>, val s
 
 
 }
+

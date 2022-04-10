@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SymptomCheckerFragment">
+
+    <TextView
+        android:id="@+id/background_information_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="Background Information"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+         />
+
+    <LinearLayout
+        android:layout_weight="13"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rounded_blue_corners"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginBottom="5dp"
+            />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/gender_chipgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="10dp"
+            app:singleSelection="true"
+            app:selectionRequired="true"
+            app:singleLine="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/male_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipStartPadding="10dp"
+                app:chipEndPadding = "10dp"
+                android:checked="false"
+                app:chipBackgroundColor = "@color/transparent_dark_blue"
+                android:textColor = "@color/white"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Male"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/female_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:chipBackgroundColor = "@color/transparent_dark_blue"
+                app:chipStartPadding="10dp"
+                app:chipEndPadding = "10dp"
+                android:textColor = "@color/white"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Female"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/other_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:chipBackgroundColor = "@color/transparent_dark_blue"
+                app:chipStartPadding="10dp"
+                app:chipEndPadding = "10dp"
+                android:textColor = "@color/white"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Other"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age Range"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="Select age range"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Are you currently pregnant?"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/pregnant_chipgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:chipSpacingHorizontal="10dp"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/yes_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipStartPadding="10dp"
+                app:chipEndPadding = "10dp"
+                android:checked="false"
+                app:chipBackgroundColor = "@color/transparent_dark_blue"
+                android:textColor = "@color/white"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="Yes" />
+
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/no_chip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:chipBackgroundColor = "@color/transparent_dark_blue"
+                app:chipStartPadding="10dp"
+                app:chipEndPadding = "10dp"
+                android:textColor = "@color/white"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="No"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

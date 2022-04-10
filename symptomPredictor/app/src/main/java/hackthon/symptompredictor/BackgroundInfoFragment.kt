@@ -1,6 +1,7 @@
 package hackthon.symptompredictor
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import hackthon.symptompredictor.databinding.FragmentBackgroundInfoBinding
 
 class BackgroundInfoFragment : Fragment() {
@@ -44,15 +47,14 @@ class BackgroundInfoFragment : Fragment() {
         selectUnselectColor(yesChip)
         selectUnselectColor(noChip)
 
-        // age range dropdown
-        val ageRangeOptions =  arrayOf("0 - 10", "10 - 20", "20 - 30", "30 - 40", "40 - 50", "50 - 65", "Above 65")
-        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_item, ageRangeOptions)
-        val autocompleteTV = rootView.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_age_range)
-        autocompleteTV.setAdapter(arrayAdapter)
-
         // next button
         rootView.findViewById<Button>(R.id.next_btn).setOnClickListener {
-            findNavController().navigate(R.id.action_BackgroundInfoFragment_to_SymptomCheckerFragment)
+            val genderChipGroup = rootView.findViewById<ChipGroup>(R.id.gender_chipgroup)
+            val gender = rootView.findViewById<Chip>(genderChipGroup.checkedChipId).text.toString()
+            val yearOfBirth = rootView.findViewById<EditText>(R.id.age_input).text.toString().toInt()
+            val action = BackgroundInfoFragmentDirections.actionBackgroundInfoFragmentToSymptomCheckerFragment(gender, yearOfBirth)
+            Log.v(TAG, gender + ", " + yearOfBirth)
+            findNavController().navigate(action)
         }
 
         return rootView

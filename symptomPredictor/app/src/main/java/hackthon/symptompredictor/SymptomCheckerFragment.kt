@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.chip.Chip
 import hackthon.symptompredictor.network.Symptoms
 import java.lang.StringBuilder
@@ -22,6 +23,18 @@ class SymptomCheckerFragment : Fragment() {
     private val TAG = "SymptomCheckerFragment"
     private lateinit var rootView: View
     private lateinit var viewModel: SymptomDiseaseViewModel
+
+    private var gender: String = ""
+    private var yearOfBirth = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val args: SymptomCheckerFragmentArgs by navArgs()
+        gender = args.gender
+        yearOfBirth = args.yearOfBirth
+
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +47,7 @@ class SymptomCheckerFragment : Fragment() {
 
         val autocompleteTV = rootView.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_symptoms)
 
+        val symptomsToId = hashMapOf<String, Int>()
         viewModel = ViewModelProvider(this).get(SymptomDiseaseViewModel::class.java)
         val checkedItems = mutableListOf<Boolean>()
         val allSymptomObserver = Observer<List<Symptoms>>{
@@ -42,11 +56,14 @@ class SymptomCheckerFragment : Fragment() {
             symptomsOptionsInString.clear()
             for (item in symptomsOptions) {
                 symptomsOptionsInString.add(item.name)
+                symptomsToId.put(item.name, item.id)
             }
 
             for (i in 1..symptomsOptions.size) {
                 checkedItems.add(false)
             }
+
+
             Log.v("Test", symptomsOptionsInString.toString())
         }
 
@@ -74,7 +91,18 @@ class SymptomCheckerFragment : Fragment() {
         }
 
         rootView.findViewById<Button>(R.id.search_disease_btn).setOnClickListener {
-            findNavController().navigate(R.id.action_SymptomCheckerFragment_to_DiagnosisResultFragment);
+            val checkedItemsList = mutableListOf<Int>()
+            var index = 0
+            for (item in checkedItems) {
+                if (item == true) {
+
+                    checkedItemsList.add(symptomsToId.get(symptomsOptionsInString[index])!!)
+                }
+                index++
+            }
+
+            val action = SymptomCheckerFragmentDirections.actionSymptomCheckerFragmentToDiagnosisResultFragment(gender, yearOfBirth, checkedItemsList.toList().toString(), "en-gb")
+            findNavController().navigate(action);
         }
 
         return rootView

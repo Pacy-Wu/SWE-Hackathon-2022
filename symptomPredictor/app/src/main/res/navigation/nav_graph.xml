@@ -55,6 +55,8 @@
         android:label="MedicalNewsFragment"
         tools:layout="@layout/fragment_medical_news">
 
+
+
     </fragment>
 
     <action

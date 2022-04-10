@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
 import java.lang.StringBuilder
@@ -16,6 +17,7 @@ import java.lang.StringBuilder
 class SymptomCheckerFragment : Fragment() {
     private val TAG = "SymptomCheckerFragment"
     private lateinit var rootView: View
+    private lateinit var viewModel: SymptomDiseaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +30,9 @@ class SymptomCheckerFragment : Fragment() {
         val autocompleteTV = rootView.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_symptoms)
 
         // TODO api get all symptoms
+        viewModel = ViewModelProvider(this).get(SymptomDiseaseViewModel::class.java)
+
+
         val symptomsOptions = arrayOf("Symptom 1", "Symptom 2", "Symptom 3", "Symptom 4", "Symptom 4", "Symptom 4", "Symptom 4")
         val checkedItems = mutableListOf<Boolean>()
         for (i in 1..symptomsOptions.size) {

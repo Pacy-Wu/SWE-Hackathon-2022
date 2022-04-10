@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity() {
         // set the action bar elevation to zero
         supportActionBar?.elevation = 0F
 
-        // addEventListener
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 
@@ -47,11 +48,13 @@ class MainActivity : AppCompatActivity() {
                 // Handle tab select
                 var position: Int = tab!!.position
                 if (position == 0) { // home page
-//                    Navigation.findNavController(this@MainActivity, R.id.action_to_HomeFragment)
+                    navController.navigate(R.id.action_to_HomeFragment)
                 } else if (position == 1) { // search page
 
-                } else if (position == 2) { // account page
+                } else if (position == 2) { // my fridge page
                 }
+
+                Log.v("test", position.toString())
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -62,11 +65,6 @@ class MainActivity : AppCompatActivity() {
                 // nothing to do here
             }
         })
-
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-
 
     }
 

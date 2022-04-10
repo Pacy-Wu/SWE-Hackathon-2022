@@ -13,10 +13,7 @@ class SymptomChoicesDialogFragment(val checkedItems: MutableList<Boolean>, val s
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
-        Log.v("Dialog", symptomsOptions.toString())
         val symptomsChecked = mutableListOf<String>()
-
-        checkedItems.toBooleanArray().forEach { Log.v("test", it.toString()) }
 
         return MaterialAlertDialogBuilder(this.requireContext())
             .setTitle("Symptoms")

@@ -1,21 +1,20 @@
 package hackthon.symptompredictor
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.chip.Chip
-import com.google.android.material.chip.ChipGroup
-import hackthon.symptompredictor.databinding.FragmentSymptomCheckerBinding
+import hackthon.symptompredictor.databinding.FragmentBackgroundInfoBinding
 
-class SymptomCheckerFragment : Fragment() {
-    private val FRAGMENT = "SYMPTOM_CHECKER_FRAGMENT"
-    private var _binding: FragmentSymptomCheckerBinding? = null
+class BackgroundInfoFragment : Fragment() {
+    private val FRAGMENT = "BACKGROUND_INFO_FRAGMENT"
+    private var _binding: FragmentBackgroundInfoBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -28,7 +27,7 @@ class SymptomCheckerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        rootView =  inflater.inflate(R.layout.fragment_symptom_checker, container, false)
+        rootView =  inflater.inflate(R.layout.fragment_background_info, container, false)
 
         // chips onClickListener
         val maleChip = rootView.findViewById<Chip>(R.id.male_chip)
@@ -44,10 +43,15 @@ class SymptomCheckerFragment : Fragment() {
         selectUnselectColor(noChip)
 
         // age range dropdown
-        val ageRangeOptions = resources.getStringArray(R.array.age_range_options)
+        val ageRangeOptions =  arrayOf("0 - 10", "10 - 20", "20 - 30", "30 - 40", "40 - 50", "50 - 65", "Above 65")
         val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_list_item, ageRangeOptions)
-        val autocompleteTV = rootView.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+        val autocompleteTV = rootView.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_age_range)
         autocompleteTV.setAdapter(arrayAdapter)
+
+        // next button
+        rootView.findViewById<Button>(R.id.next_btn).setOnClickListener {
+            findNavController().navigate(R.id.action_BackgroundInfoFragment_to_SymptomCheckerFragment)
+        }
 
         return rootView
 

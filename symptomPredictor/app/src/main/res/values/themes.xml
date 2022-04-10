@@ -24,6 +24,10 @@
         <item name="colorPrimary">@color/dark_blue</item>
     </style>
 
+        <style name="Button.Green" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@color/green</item>
+    </style>
+
     <style name="Theme.SymptomPredictor.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorPrimary">@color/dark_blue</item>
     </style>

@@ -11,6 +11,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import androidx.navigation.Navigation
+import com.google.android.material.tabs.TabItem
+import com.google.android.material.tabs.TabLayout
 import hackthon.symptompredictor.databinding.ActivityMainBinding
 import hackthon.symptompredictor.network.ApiMedicApi
 import hackthon.symptompredictor.network.Diagnosis
@@ -35,6 +38,30 @@ class MainActivity : AppCompatActivity() {
 
         // set the action bar elevation to zero
         supportActionBar?.elevation = 0F
+
+        // addEventListener
+        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                // Handle tab select
+                var position: Int = tab!!.position
+                if (position == 0) { // home page
+//                    Navigation.findNavController(this@MainActivity, R.id.action_to_HomeFragment)
+                } else if (position == 1) { // search page
+
+                } else if (position == 2) { // account page
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                // nothing to do here
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // nothing to do here
+            }
+        })
 
 //        val navController = findNavController(R.id.nav_host_fragment_content_main)
 //        appBarConfiguration = AppBarConfiguration(navController.graph)

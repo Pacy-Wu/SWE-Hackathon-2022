@@ -5,25 +5,24 @@
     // The width and color of the border
     <stroke
         android:width="4dp"
-        android:color="@color/light_blue" />
+        android:color="@color/green" />
 
     // fill in color
     <solid
-        android:color="@color/light_blue"
+        android:color="@color/green"
         />
 
     // The desired corner radius. reduce it to keep it less rounded
-    <corners android:topLeftRadius="40dp"
+    <corners
         android:topRightRadius="40dp"
-        android:bottomLeftRadius="40dp"
         android:bottomRightRadius="40dp"/>
 
     // padding
     <padding
-        android:left="40dp"
-        android:top="40dp"
-        android:right="40dp"
-        android:bottom="40dp"    >
+        android:left="15dp"
+        android:top="5dp"
+        android:right="20dp"
+        android:bottom="5dp"   >
     </padding>
 
 </shape>

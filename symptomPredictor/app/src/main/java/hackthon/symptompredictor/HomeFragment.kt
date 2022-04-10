@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
         rootView =  inflater.inflate(R.layout.fragment_home, container, false)
 
         rootView.findViewById<TextView>(R.id.symptom_checker_btn).setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_SymptomCheckerFragment)
+            findNavController().navigate(R.id.action_HomeFragment_to_BackgroundInfoFragment)
         }
 
         rootView.findViewById<TextView>(R.id.bmi_calculator_btn).setOnClickListener {

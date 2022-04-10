@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_HomeFragment_to_SymptomCheckerFragment"
-            app:destination="@id/SymptomCheckerFragment" />
+            android:id="@+id/action_HomeFragment_to_BackgroundInfoFragment"
+            app:destination="@id/BackgroundInfoFragment" />
 
         <action
             android:id="@+id/action_HomeFragment_to_BMICalculatorFragment"
@@ -22,6 +22,17 @@
         <action
             android:id="@+id/action_HomeFragment_to_MedicalNewsFragment"
             app:destination="@id/MedicalNewsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/BackgroundInfoFragment"
+        android:name="hackthon.symptompredictor.BackgroundInfoFragment"
+        android:label="BackgroundInfoFragment"
+        tools:layout="@layout/fragment_background_info">
+
+        <action
+            android:id="@+id/action_BackgroundInfoFragment_to_SymptomCheckerFragment"
+            app:destination="@id/SymptomCheckerFragment" />
     </fragment>
 
     <fragment
@@ -45,4 +56,8 @@
         tools:layout="@layout/fragment_medical_news">
 
     </fragment>
+
+    <action
+        android:id="@+id/action_to_HomeFragment"
+        app:destination="@id/HomeFragment" />
 </navigation>

@@ -40,6 +40,26 @@
         android:name="hackthon.symptompredictor.DiagnosisResultFragment"
         android:label="DiagnosisResultFragment"
         tools:layout="@layout/fragment_diagnosis_result">
+
+        <argument
+            android:name="gender"
+            app:argType="string"
+            />
+
+        <argument
+            android:name="yearOfBirth"
+            app:argType="integer"
+            />
+
+        <argument
+            android:name="symptoms"
+            app:argType="string"
+            />
+
+        <argument
+            android:name="languages"
+            app:argType="string"
+            />
     </fragment>
 
     <fragment
@@ -51,6 +71,18 @@
         <action
             android:id="@+id/action_SymptomCheckerFragment_to_DiagnosisResultFragment"
             app:destination="@id/DiagnosisResultFragment" />
+
+        <argument
+            android:name="gender"
+            app:argType="string"
+            />
+
+        <argument
+            android:name="yearOfBirth"
+            app:argType="integer"
+            />
+
+
     </fragment>
 
     <fragment

@@ -74,8 +74,7 @@ class SymptomCheckerFragment : Fragment() {
         }
 
         rootView.findViewById<Button>(R.id.search_disease_btn).setOnClickListener {
-            // TODO
-//            findNavController().navigate();
+            findNavController().navigate(R.id.action_SymptomCheckerFragment_to_DiagnosisResultFragment);
         }
 
         return rootView

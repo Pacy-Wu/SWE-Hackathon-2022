@@ -36,10 +36,21 @@
     </fragment>
 
     <fragment
+        android:id="@+id/DiagnosisResultFragment"
+        android:name="hackthon.symptompredictor.DiagnosisResultFragment"
+        android:label="DiagnosisResultFragment"
+        tools:layout="@layout/fragment_diagnosis_result">
+    </fragment>
+
+    <fragment
         android:id="@+id/SymptomCheckerFragment"
         android:name="hackthon.symptompredictor.SymptomCheckerFragment"
         android:label="SymptomCheckerFragment"
         tools:layout="@layout/fragment_symptom_checker">
+
+        <action
+            android:id="@+id/action_SymptomCheckerFragment_to_DiagnosisResultFragment"
+            app:destination="@id/DiagnosisResultFragment" />
     </fragment>
 
     <fragment
@@ -54,8 +65,6 @@
         android:name="hackthon.symptompredictor.MedicalNewsFragment"
         android:label="MedicalNewsFragment"
         tools:layout="@layout/fragment_medical_news">
-
-
 
     </fragment>
 

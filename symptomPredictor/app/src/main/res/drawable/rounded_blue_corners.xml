@@ -20,10 +20,10 @@
 
     // padding
     <padding
-        android:left="40dp"
-        android:top="40dp"
-        android:right="40dp"
-        android:bottom="40dp"    >
+        android:left="25dp"
+        android:top="15dp"
+        android:right="25dp"
+        android:bottom="25dp"    >
     </padding>
 
 </shape>

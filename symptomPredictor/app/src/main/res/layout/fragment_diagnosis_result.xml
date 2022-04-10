@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SymptomCheckerFragment">
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:layout_marginTop="10dp"
+        android:text="&lt;   Back"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/gray"
+        android:background="@drawable/back_background"
+        android:layout_marginBottom="10dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+        <TextView
+            android:id="@+id/diagnosis_page_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Here are the conditions that match your symptoms"
+            android:gravity="start"
+            android:textAlignment="textStart"
+            android:textSize="32dp"
+            android:textColor="@color/dark_grey"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rounded_blue_corners"
+            >
+
+            <TextView
+                android:id="@+id/top_diagnosis_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="7dp"
+                android:text="Cluster Headache"
+                android:gravity="start"
+                android:textAlignment="textStart"
+                android:textSize="32dp"
+                android:textColor="@color/dark_grey"
+                android:fontFamily="sans-serif"
+                />
+
+            <TextView
+                android:id="@+id/top_diagnosis_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="A cluster headache commonly awakens you in the middle of the night with intense pain in or around one eye on one side of your head. Bouts of"
+                android:gravity="start"
+                android:textAlignment="textStart"
+                android:textSize="18dp"
+                android:textColor="@color/dark_grey"
+                android:fontFamily="sans-serif-light"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/rounded_blue_corners"
+            >
+
+            <TextView
+                android:id="@+id/other_diagnosis_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="7dp"
+                android:text="Other Possible Matches"
+                android:gravity="start"
+                android:textAlignment="textStart"
+                android:textSize="32dp"
+                android:textColor="@color/dark_grey"
+                android:fontFamily="sans-serif"
+                />
+
+            <TextView
+                android:id="@+id/other_diagnosis_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Common Cold, Migraine Headache, Tension Headache"
+                android:gravity="start"
+                android:textAlignment="textStart"
+                android:textSize="18dp"
+                android:textColor="@color/dark_grey"
+                android:fontFamily="sans-serif-light"
+                />
+
+        </LinearLayout>
+
+</LinearLayout>

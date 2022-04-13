@@ -47,6 +47,7 @@ class SymptomDiseaseViewModel: ViewModel() {
                 ) {
                     val body = response.body()
                     _allDiagnosis.value = body!!
+                    Log.v(TAG, body.toString())
                 }
                 override fun onFailure(call: Call<List<Diagnosis>>, t: Throwable) {
                     Log.e(TAG, "Failure: ${t.message}")

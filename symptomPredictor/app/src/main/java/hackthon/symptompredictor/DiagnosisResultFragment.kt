@@ -46,19 +46,24 @@ class DiagnosisResultFragment : Fragment() {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_diagnosis_result, container, false)
 
-        val diagnosis =
-            viewModel = ViewModelProvider(this).get(SymptomDiseaseViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(SymptomDiseaseViewModel::class.java)
         val allDiagnosisObserver = Observer<List<Diagnosis>>{
+            if (it.size == 0) {
+                rootView.findViewById<TextView>(R.id.top_diagnosis_title).text = "Can't find issue"
+                rootView.findViewById<TextView>(R.id.other_diagnosis_content).text = "Can't find issue"
+            } else {
 
-            rootView.findViewById<TextView>(R.id.top_diagnosis_title).text = it[0].issue.name
-            val otherIssue = ""
-            for (i in it) {
-                if (i.toString() != it[0].toString()) {
-                    otherIssue += i.issue.name
+                rootView.findViewById<TextView>(R.id.top_diagnosis_title).text = it[0].issue.name
+                var otherIssue = ""
+                for (i in it) {
+                    if (i.toString() != it[0].toString()) {
+                        otherIssue += i.issue.name + ", "
+                    }
                 }
+                otherIssue = otherIssue.substring(0, otherIssue.length - 2)
+                rootView.findViewById<TextView>(R.id.other_diagnosis_content).text = otherIssue
+                Log.v(TAG, it.toString())
             }
-            rootView.findViewById<TextView>(R.id.other_diagnosis_content).text =
-            Log.v(TAG, it.toString())
         }
 
         Log.v(TAG, symptoms)
